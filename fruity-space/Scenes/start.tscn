@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://begwxr6t21ugf" path="res://Scenes/play_button.gd" id="5_pg4io"]
 [ext_resource type="BitMap" uid="uid://cgjwfgsuh67ia" path="res://Assets/quitClickmaskv1.png" id="6_pg4io"]
 [ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scenes/quit_button.gd" id="8_iceld"]
+[ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="10_5bn4p"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_fu252"]
 
@@ -66,6 +67,11 @@ scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("4_rk01k")
 texture_click_mask = ExtResource("6_pg4io")
 script = ExtResource("8_iceld")
+
+[node name="PlanetV2" type="Sprite2D" parent="." unique_id=782405551]
+position = Vector2(567, 1321)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_5bn4p")
 
 [connection signal="mouse_entered" from="PlayButton" to="PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="PlayButton" method="_on_mouse_exited"]
