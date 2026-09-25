@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://ph2ud8sevsmu"]
 
 [ext_resource type="Script" uid="uid://dmigux2nso5ii" path="res://Scripts/start.gd" id="1_3bxa3"]
+[ext_resource type="Texture2D" uid="uid://ccyxcs84emg33" path="res://Assets/Background.png" id="2_7pwkw"]
+[ext_resource type="Texture2D" uid="uid://b31u8exs2a66" path="res://Assets/logov1.png" id="2_r48yj"]
+[ext_resource type="Texture2D" uid="uid://o1jmts7q4niu" path="res://Assets/playButton.png" id="3_lb6bl"]
+[ext_resource type="BitMap" uid="uid://j0geool73wjm" path="res://Assets/playclickmaskv1.png" id="4_o3wvq"]
+[ext_resource type="Texture2D" uid="uid://0y1kvkvrkatw" path="res://Assets/quitButton.png" id="4_rk01k"]
+[ext_resource type="Script" uid="uid://begwxr6t21ugf" path="res://Scenes/play_button.gd" id="5_pg4io"]
+[ext_resource type="BitMap" uid="uid://cgjwfgsuh67ia" path="res://Assets/quitClickmaskv1.png" id="6_pg4io"]
+[ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scenes/quit_button.gd" id="8_iceld"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_fu252"]
 
 [node name="Start" type="Control" unique_id=1165826760]
 layout_mode = 3
@@ -10,3 +20,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3bxa3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=11348335]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 641.0
+color = Color(0.019047858, 0.11290052, 0.20252335, 1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=240163844]
+position = Vector2(577, 329)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_7pwkw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=745385074]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1148.0
+offset_bottom = 637.0
+scale = Vector2(4.5, 4.5)
+texture = SubResource("ImageTexture_fu252")
+
+[node name="Logov1" type="Sprite2D" parent="." unique_id=2131334396]
+position = Vector2(576, 101.00001)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_r48yj")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=328454691]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 263.0
+offset_right = 329.0
+offset_bottom = 303.0
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("3_lb6bl")
+texture_click_mask = ExtResource("4_o3wvq")
+script = ExtResource("5_pg4io")
+
+[node name="QuitButton" type="TextureButton" parent="." unique_id=711320048]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 276.0
+offset_right = 660.0
+offset_bottom = 316.0
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("4_rk01k")
+texture_click_mask = ExtResource("6_pg4io")
+script = ExtResource("8_iceld")
+
+[connection signal="mouse_entered" from="PlayButton" to="PlayButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayButton" to="PlayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="QuitButton" to="QuitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
