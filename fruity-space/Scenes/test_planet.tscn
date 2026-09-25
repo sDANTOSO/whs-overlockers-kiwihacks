@@ -11,10 +11,10 @@ radius = 1024.0
 script = ExtResource("1_efaey")
 circle_radius = 0
 
-[node name="CharacterBody2D" parent="." unique_id=281807801 instance=ExtResource("1_4txwd")]
+[node name="Player" parent="." unique_id=281807801 instance=ExtResource("1_4txwd")]
 position = Vector2(1300, 0)
 
-[node name="Camera2D" parent="CharacterBody2D" index="2" unique_id=678578449]
+[node name="Camera2D" parent="Player" index="2" unique_id=678578449]
 ignore_rotation = false
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
@@ -27,4 +27,4 @@ shape = SubResource("CircleShape2D_cq4jf")
 scale = Vector2(2, 2)
 texture = ExtResource("2_lljo5")
 
-[editable path="CharacterBody2D"]
+[editable path="Player"]
