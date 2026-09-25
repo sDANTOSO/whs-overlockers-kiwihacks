@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bx76id5dv6bm3" path="res://Scenes/player.tscn" id="1_4txwd"]
 [ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_efaey"]
 [ext_resource type="Texture2D" uid="uid://bupdaej36xveh" path="res://Assets/Circle_(transparent).png" id="2_lljo5"]
+[ext_resource type="PackedScene" uid="uid://s3d8uge3iohp" path="res://Scenes/collectable.tscn" id="2_wk8eb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
 radius = 1024.0
@@ -10,6 +11,9 @@ radius = 1024.0
 [node name="TestPlanet" type="Node2D" unique_id=1306942870]
 script = ExtResource("1_efaey")
 circle_radius = 0
+
+[node name="Collectable" parent="." unique_id=844168892 instance=ExtResource("2_wk8eb")]
+position = Vector2(1048, -397)
 
 [node name="Player" parent="." unique_id=281807801 instance=ExtResource("1_4txwd")]
 position = Vector2(1300, 0)

@@ -9,13 +9,13 @@ size = Vector2(128, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfyh"]
 size = Vector2(100, 2)
 
-[node name="Player" type="CharacterBody2D" unique_id=281807801]
+[node name="Player" type="CharacterBody2D" unique_id=281807801 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009331673]
 shape = SubResource("RectangleShape2D_cq4jf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2044473354]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2044473354 groups=["Player"]]
 position = Vector2(0, -63)
 scale = Vector2(8.125, 8.125)
 texture = ExtResource("2_cvnsp")
