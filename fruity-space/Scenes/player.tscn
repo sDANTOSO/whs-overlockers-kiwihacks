@@ -12,7 +12,6 @@ size = Vector2(30, 2)
 
 [node name="Player" type="CharacterBody2D" unique_id=281807801 groups=["Player"]]
 script = ExtResource("1_cvnsp")
-jump_velocity = 7
 idleSprite = ExtResource("2_cvnsp")
 jumpSprite = ExtResource("2_6t5aa")
 
@@ -29,8 +28,6 @@ texture = ExtResource("2_cvnsp")
 scale = Vector2(4.9374986, 0.31249997)
 texture = ExtResource("2_cvnsp")
 offset = Vector2(30, 0)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=678578449]
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=212273052]
 position = Vector2(0, 12)
