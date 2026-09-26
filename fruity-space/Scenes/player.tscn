@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bx76id5dv6bm3"]
 
 [ext_resource type="Script" uid="uid://bhm0816t7h220" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bmiop4qegett2" path="res://Assets/astronaut.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://c36jyu48duhdq" path="res://Assets/astronaut.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
 size = Vector2(128, 20)
@@ -16,8 +16,8 @@ script = ExtResource("1_cvnsp")
 shape = SubResource("RectangleShape2D_cq4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2044473354 groups=["Player"]]
-position = Vector2(0, -63)
-scale = Vector2(8.125, 8.125)
+position = Vector2(0, -9)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=678578449]
