@@ -14,4 +14,3 @@ func collision(body: Node2D):
 		activated = true
 		player.set_checkpoint(global_position)
 	rocket.leave()
-	
