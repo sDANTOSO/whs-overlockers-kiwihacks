@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bhl1s71cqkn3g"
+path="res://.godot/imported/Settingsclickmask.png-6d02d65b9315b485cd77f8e6112604aa.res"
+
+[deps]
+
+source_file="res://Assets/Settingsclickmask.png"
+dest_files=["res://.godot/imported/Settingsclickmask.png-6d02d65b9315b485cd77f8e6112604aa.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
