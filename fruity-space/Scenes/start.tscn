@@ -10,6 +10,8 @@
 [ext_resource type="BitMap" uid="uid://cgjwfgsuh67ia" path="res://Assets/quitClickmaskv1.png" id="6_pg4io"]
 [ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scenes/quit_button.gd" id="8_iceld"]
 [ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="10_5bn4p"]
+[ext_resource type="BitMap" uid="uid://bhl1s71cqkn3g" path="res://Assets/Settingsclickmask.png" id="11_knwj7"]
+[ext_resource type="Texture2D" uid="uid://dvde75bspcexp" path="res://Assets/Settings.png" id="11_qmsyr"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_fu252"]
 
@@ -29,14 +31,13 @@ offset_bottom = 641.0
 color = Color(0.019047858, 0.11290052, 0.20252335, 1)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=240163844]
-position = Vector2(577, 329)
+position = Vector2(576, 325)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_7pwkw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=745385074]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 1148.0
+offset_right = 1147.0
 offset_bottom = 637.0
 scale = Vector2(4.5, 4.5)
 texture = SubResource("ImageTexture_fu252")
@@ -68,8 +69,19 @@ texture_normal = ExtResource("4_rk01k")
 texture_click_mask = ExtResource("6_pg4io")
 script = ExtResource("8_iceld")
 
+[node name="SettingsButton2" type="TextureButton" parent="." unique_id=46331952]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 36.0
+offset_right = 1043.0
+offset_bottom = 76.0
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("11_qmsyr")
+texture_click_mask = ExtResource("11_knwj7")
+script = ExtResource("8_iceld")
+
 [node name="PlanetV2" type="Sprite2D" parent="." unique_id=782405551]
-position = Vector2(567, 1321)
+position = Vector2(562, 1340)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("10_5bn4p")
 
@@ -79,3 +91,6 @@ texture = ExtResource("10_5bn4p")
 [connection signal="mouse_entered" from="QuitButton" to="QuitButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="QuitButton" to="QuitButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="SettingsButton2" to="SettingsButton2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SettingsButton2" to="SettingsButton2" method="_on_mouse_exited"]
+[connection signal="pressed" from="SettingsButton2" to="SettingsButton2" method="_on_pressed"]
