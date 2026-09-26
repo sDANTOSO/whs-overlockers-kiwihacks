@@ -4,6 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://bys7nk5sq33xo" path="res://Assets/astronautJump.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://c36jyu48duhdq" path="res://Assets/astronaut.png" id="2_cvnsp"]
 
+[sub_resource type="Curve" id="Curve_6t5aa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.000329, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6t5aa"]
+curve = SubResource("Curve_6t5aa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
+particle_flag_disable_z = true
+angle_min = -145.49998
+angle_max = 329.40002
+gravity = Vector3(0, 0, 0)
+scale_min = 15.0
+scale_max = 40.0
+scale_curve = SubResource("CurveTexture_6t5aa")
+color = Color(1, 1, 1, 0.019607844)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
 size = Vector2(72, 102)
 
@@ -15,6 +32,13 @@ script = ExtResource("1_cvnsp")
 idleSprite = ExtResource("2_cvnsp")
 jumpSprite = ExtResource("2_6t5aa")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1100454922]
+position = Vector2(-2, 12)
+amount = 45
+lifetime = 0.3
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_g4v7s")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009331673]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_cq4jf")
@@ -25,6 +49,7 @@ scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_cvnsp")
 
 [node name="ArrowSprite" type="Sprite2D" parent="." unique_id=1502473875 groups=["Player"]]
+visible = false
 scale = Vector2(4.9374986, 0.31249997)
 texture = ExtResource("2_cvnsp")
 offset = Vector2(30, 0)
