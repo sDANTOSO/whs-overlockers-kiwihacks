@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var SPEED:float = 300
 var theta:float = 0;
 var magnitude:float = 1200;
@@ -12,10 +11,8 @@ var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
 
-
 var frames_since_last_damaged = 100;
 var magnitude_velocity = 0;
-
 
 func _ready() -> void:
 	goto_checkpoint()
@@ -71,7 +68,7 @@ func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1
 		frames_since_last_damaged = 0
-		print(health)
+		print(health);
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health

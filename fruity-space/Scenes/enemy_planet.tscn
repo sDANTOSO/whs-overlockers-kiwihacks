@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_hiosp"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="2_4wstj"]
 [ext_resource type="PackedScene" uid="uid://bx76id5dv6bm3" path="res://Scenes/player.tscn" id="3_4wstj"]
+[ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="4_4wstj"]
 [ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="4_747j0"]
 [ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="4_hiosp"]
-[ext_resource type="Texture2D" uid="uid://bupdaej36xveh" path="res://Assets/Circle_(transparent).png" id="4_hl06r"]
+[ext_resource type="PackedScene" uid="uid://s3d8uge3iohp" path="res://Scenes/collectable.tscn" id="7_hl06r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
 radius = 1024.0
@@ -40,8 +41,8 @@ gravity_scale = 0.0
 shape = SubResource("CircleShape2D_cq4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1919776171]
-scale = Vector2(2, 2)
-texture = ExtResource("4_hl06r")
+scale = Vector2(5.08, 5.08)
+texture = ExtResource("4_4wstj")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=141078179]
 curve = SubResource("Curve2D_747j0")
@@ -56,6 +57,9 @@ script = null
 
 [node name="Area2D" parent="Path2D/PathFollow2D/evil_enemy" index="0" unique_id=1102634025 node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
+
+[node name="Collectable" parent="." unique_id=844168892 instance=ExtResource("7_hl06r")]
+position = Vector2(1294, -125)
 
 [editable path="Sprite2D"]
 [editable path="Player"]
