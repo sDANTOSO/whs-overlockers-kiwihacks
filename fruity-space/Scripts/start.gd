@@ -1,6 +1,6 @@
 extends Control
 
-const GAME_SCENE = preload("res://Scenes/test_planet2.tscn")
+const GAME_SCENE = preload("res://Scenes/level1.tscn")
 
 @onready var planet_v_2: Sprite2D = $PlanetV2
 @onready var camera_2d: Camera2D = $Camera2D

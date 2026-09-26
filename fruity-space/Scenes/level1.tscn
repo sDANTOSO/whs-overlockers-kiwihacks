@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://dehtjdfpm675b"]
+[gd_scene format=3 uid="uid://d0bdoeriquq5k"]
 
+[ext_resource type="Script" uid="uid://cjxifl2tf1sot" path="res://Scenes/level_1.gd" id="1_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="3_bs12r"]
+[ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="4_2a60c"]
 [ext_resource type="PackedScene" uid="uid://8k1sr0b3kpet" path="res://Scenes/player.tscn" id="4_rqhku"]
-[ext_resource type="Texture2D" uid="uid://bby1rd68m7hfk" path="res://Assets/planet-v1.png" id="5_cpkqv"]
 [ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="6_d1mwp"]
 [ext_resource type="Texture2D" uid="uid://ctn6ppinwfx5k" path="res://Assets/platform.png" id="7_2a60c"]
 [ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="7_u1b78"]
@@ -34,6 +35,7 @@ _data = {
 point_count = 2
 
 [node name="TestPlanet" type="Node2D" unique_id=1306942870]
+script = ExtResource("1_jgkgd")
 
 [node name="Camera" parent="." unique_id=1252687878 node_paths=PackedStringArray("target") instance=ExtResource("2_jgkgd")]
 target = NodePath("../Player")
@@ -53,8 +55,8 @@ shape = SubResource("CircleShape2D_cq4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1919776171]
 position = Vector2(-5, 0)
-scale = Vector2(13.6, 13.6)
-texture = ExtResource("5_cpkqv")
+scale = Vector2(5, 5)
+texture = ExtResource("4_2a60c")
 
 [node name="Platforms" type="Node2D" parent="." unique_id=217250550]
 
