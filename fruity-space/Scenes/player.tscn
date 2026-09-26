@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c36jyu48duhdq" path="res://Assets/astronaut.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
-size = Vector2(128, 20)
+size = Vector2(72, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfyh"]
-size = Vector2(100, 2)
+size = Vector2(30, 2)
 
 [node name="Player" type="CharacterBody2D" unique_id=281807801 groups=["Player"]]
 script = ExtResource("1_cvnsp")
@@ -17,6 +17,7 @@ idleSprite = ExtResource("2_cvnsp")
 jumpSprite = ExtResource("2_6t5aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009331673]
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_cq4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2044473354 groups=["Player"]]

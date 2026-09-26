@@ -52,22 +52,22 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true;
 
 	if not shapecast.is_colliding():
-		var A = G / max(magnitude * magnitude, 0.1)
-		magnitude_velocity += A * delta
+	#	var A = G / max(magnitude * magnitude, 0.1)
+	#	magnitude_velocity += A * delta
 		sprite.texture = jumpSprite;
 		grounded = false;
 	else:
-		#if !grounded:
+	#	#if !grounded:
 		direction *= FRICTION;
-		grounded = true;
-		sprite.texture = idleSprite;
-		if Input.is_action_just_pressed("primary"):
-			var yVel = max(0,-sin(arrow.rotation))*jump_velocity;
-			if yVel>jumpThreshold:
-				direction = xDir;
-				magnitude_velocity -= yVel;
-		else: 
-			magnitude_velocity = 0.0
+	#	grounded = true;
+	#	sprite.texture = idleSprite;
+	if Input.is_action_just_pressed("primary"):
+		var yVel = max(0,-sin(arrow.rotation))*jump_velocity;
+		if yVel>jumpThreshold:
+			direction = xDir;
+			magnitude_velocity -= yVel;
+	else: 
+		magnitude_velocity = 0.0
 		
 	magnitude -= magnitude_velocity
 	
@@ -81,10 +81,13 @@ func _physics_process(delta: float) -> void:
 	)
 	
 	velocity = (target_position - position) / delta
-	
+	var velX = velocity.x;
 	if move_and_slide():
 		theta = position.angle()
 		rotation = theta + PI/2
+		
+		if velX!=0 && velocity.x==0:
+			print("hit wall");
 	else:
 		theta = next_theta
 		rotation = theta + PI/2

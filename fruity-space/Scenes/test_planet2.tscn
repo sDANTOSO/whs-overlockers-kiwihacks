@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bupdaej36xveh" path="res://Assets/Circle_(transparent).png" id="5_uolre"]
 [ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="6_jxygr"]
 [ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="7_jtigk"]
+[ext_resource type="PackedScene" uid="uid://cu5jlhwqumt27" path="res://Scenes/platform.tscn" id="8_8xu40"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
 radius = 1024.0
@@ -58,6 +59,20 @@ script = null
 
 [node name="Area2D" parent="Path2D/PathFollow2D/evil_enemy" index="0" unique_id=1102634025 node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=217250550]
+
+[node name="platform" parent="Platforms" unique_id=1459076347 instance=ExtResource("8_8xu40")]
+position = Vector2(1101, -271.00003)
+rotation = 1.2300916
+
+[node name="platform2" parent="Platforms" unique_id=70939101 instance=ExtResource("8_8xu40")]
+position = Vector2(1070.9999, -635)
+rotation = 1.0732855
+
+[node name="platform3" parent="Platforms" unique_id=1893528493 instance=ExtResource("8_8xu40")]
+position = Vector2(1002, -1003)
+rotation = 0.9444728
 
 [editable path="Camera"]
 [editable path="Sprite2D"]
