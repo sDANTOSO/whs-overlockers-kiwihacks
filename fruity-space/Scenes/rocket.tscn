@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c50dplk5sdrci"]
+
+[ext_resource type="Texture2D" uid="uid://dstif3lfqsrpv" path="res://Assets/rocket.png" id="1_kvp10"]
+[ext_resource type="Texture2D" uid="uid://7jbok2ruh1ij" path="res://Assets/rocket_person.png" id="2_hthiq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3w1rt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kvp10")
+}],
+"loop": 1,
+"name": &"manless",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hthiq")
+}],
+"loop": 1,
+"name": &"manned",
+"speed": 5.0
+}]
+
+[node name="Rocket" type="Node2D" unique_id=1936699757]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=732519113]
+sprite_frames = SubResource("SpriteFrames_3w1rt")
+animation = &"manned"

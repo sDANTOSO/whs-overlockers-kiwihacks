@@ -29,11 +29,11 @@ var grounded: bool = false;
 
 func _ready() -> void:	
 	lastCheckpoint = position;
+	hud.display_health(health)
 	goto_checkpoint()
 
 func goto_checkpoint():
 	global_position = lastCheckpoint;
-	hud.display_health(health)
 
 func _physics_process(delta: float) -> void:
 	look_at(planet.position)
@@ -82,10 +82,13 @@ func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1
 		frames_since_last_damaged = 0
+		#print(health)
 		hud.display_health(health)
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health
+		hud.display_health(health)
+
 
 func set_checkpoint(pos: Vector2):
 	lastCheckpoint = pos;
