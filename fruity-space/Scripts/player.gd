@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 @export var GROUNDSPEED:float = 100
-@export var AIRSPEED:float = 5
-@export var MAXAIRSPEED: float = 15;
+@export var AIRSPEED:float = 15
+@export var MAXAIRSPEED: float = 600;
 @export var FRICTION: float = 0.8;
 @export var G: float = 15;
 @export var jump_velocity: int = 700
@@ -63,7 +63,9 @@ func _physics_process(delta: float) -> void:
 	
 	if !grounded:
 		velocity += diffToPlanet * G;
-		if velocity.length()<MAXAIRSPEED:
+		print(velocity.length());
+		var newMag = (velocity+horizontalVelocity).length();
+		if newMag < MAXAIRSPEED || newMag<velocity.length():
 			velocity+=horizontalVelocity*AIRSPEED;
 	else:
 		velocity+=horizontalVelocity*GROUNDSPEED;
