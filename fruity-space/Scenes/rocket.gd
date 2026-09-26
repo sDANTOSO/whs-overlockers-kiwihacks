@@ -7,6 +7,7 @@ var is_leaving = false
 
 func _ready() -> void:
 	self.hide()
+	$"../Camera/Camera2D/CanvasLayer/HUD".visible = false
 	
 func _process(delta: float) -> void:
 	if is_leaving:
