@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dmigux2nso5ii" path="res://Scripts/start.gd" id="1_3bxa3"]
 [ext_resource type="Texture2D" uid="uid://ccyxcs84emg33" path="res://Assets/Background.png" id="2_7pwkw"]
+[ext_resource type="Texture2D" uid="uid://bwjqw5chgbkoe" path="res://Assets/bg.png" id="2_jwunu"]
 [ext_resource type="Texture2D" uid="uid://b31u8exs2a66" path="res://Assets/logov1.png" id="2_r48yj"]
 [ext_resource type="Texture2D" uid="uid://o1jmts7q4niu" path="res://Assets/playButton.png" id="3_lb6bl"]
 [ext_resource type="BitMap" uid="uid://j0geool73wjm" path="res://Assets/playclickmaskv1.png" id="4_o3wvq"]
 [ext_resource type="Texture2D" uid="uid://0y1kvkvrkatw" path="res://Assets/quitButton.png" id="4_rk01k"]
-[ext_resource type="Script" uid="uid://begwxr6t21ugf" path="res://Scenes/play_button.gd" id="5_pg4io"]
+[ext_resource type="Script" uid="uid://begwxr6t21ugf" path="res://Scripts/play_button.gd" id="5_pg4io"]
 [ext_resource type="BitMap" uid="uid://cgjwfgsuh67ia" path="res://Assets/quitClickmaskv1.png" id="6_pg4io"]
-[ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scenes/quit_button.gd" id="8_iceld"]
+[ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scripts/quit_button.gd" id="8_iceld"]
 [ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="10_5bn4p"]
 [ext_resource type="BitMap" uid="uid://bhl1s71cqkn3g" path="res://Assets/Settingsclickmask.png" id="11_knwj7"]
 [ext_resource type="Texture2D" uid="uid://dvde75bspcexp" path="res://Assets/Settings.png" id="11_qmsyr"]
@@ -29,6 +30,11 @@ layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 641.0
 color = Color(0.019047858, 0.11290052, 0.20252335, 1)
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1666742840]
+position = Vector2(216, 1304)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_jwunu")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=240163844]
 position = Vector2(576, 325)
@@ -85,8 +91,15 @@ position = Vector2(562, 1340)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("10_5bn4p")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1948974284]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1474023344]
+position = Vector2(575, 334)
+scale = Vector2(2, 2)
+
 [connection signal="mouse_entered" from="PlayButton" to="PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="PlayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
 [connection signal="mouse_entered" from="QuitButton" to="QuitButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="QuitButton" to="QuitButton" method="_on_mouse_exited"]
