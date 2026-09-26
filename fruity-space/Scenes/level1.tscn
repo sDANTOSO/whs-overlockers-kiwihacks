@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dehtjdfpm675b"]
 
+[ext_resource type="PackedScene" uid="uid://c50dplk5sdrci" path="res://Scenes/rocket.tscn" id="1_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="3_bs12r"]
 [ext_resource type="PackedScene" uid="uid://8k1sr0b3kpet" path="res://Scenes/player.tscn" id="4_rqhku"]
@@ -34,6 +35,13 @@ _data = {
 point_count = 2
 
 [node name="TestPlanet" type="Node2D" unique_id=1306942870]
+
+[node name="Rocket" parent="." unique_id=1936699757 node_paths=PackedStringArray("player", "camera") instance=ExtResource("1_jgkgd")]
+position = Vector2(-405, -1131)
+rotation = -0.3403392
+scale = Vector2(5, 5)
+player = NodePath("../Player")
+camera = NodePath("../Camera")
 
 [node name="Camera" parent="." unique_id=1252687878 node_paths=PackedStringArray("target") instance=ExtResource("2_jgkgd")]
 target = NodePath("../Player")
@@ -152,8 +160,9 @@ player = NodePath("../../../../../Player")
 [node name="Sprite2D" parent="Checkpoints" unique_id=1418146030 instance=ExtResource("3_bs12r")]
 position = Vector2(-174, -1107.0001)
 
-[node name="Area2D" parent="Checkpoints/Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player")]
+[node name="Area2D" parent="Checkpoints/Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player", "rocket")]
 player = NodePath("../../../Player")
+rocket = NodePath("../../../Rocket")
 
 [editable path="Camera"]
 [editable path="Player"]

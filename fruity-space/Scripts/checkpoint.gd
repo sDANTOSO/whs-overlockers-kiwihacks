@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var player: Node2D 
+@export var rocket: Node2D
+
 var activated := false
 
 func _ready() -> void:
@@ -11,3 +13,5 @@ func collision(body: Node2D):
 		print("Player IN")
 		activated = true
 		player.set_checkpoint(global_position)
+	rocket.leave()
+	
