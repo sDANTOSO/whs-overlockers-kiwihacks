@@ -23,6 +23,11 @@ position = Vector2(0, -9)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_cvnsp")
 
+[node name="ArrowSprite" type="Sprite2D" parent="." unique_id=1502473875 groups=["Player"]]
+scale = Vector2(4.9374986, 0.31249997)
+texture = ExtResource("2_cvnsp")
+offset = Vector2(30, 0)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=678578449]
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=212273052]
