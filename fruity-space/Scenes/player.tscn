@@ -12,6 +12,7 @@ size = Vector2(100, 2)
 
 [node name="Player" type="CharacterBody2D" unique_id=281807801 groups=["Player"]]
 script = ExtResource("1_cvnsp")
+jump_velocity = 7
 idleSprite = ExtResource("2_cvnsp")
 jumpSprite = ExtResource("2_6t5aa")
 

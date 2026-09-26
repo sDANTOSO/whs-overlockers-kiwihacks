@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 
 @export var SPEED:float = 300
+@export var FRICTION: float = 0.92;
 var theta:float = 0;
 var magnitude:float = 1200;
 @export var jump_velocity: int = 5
+@export var jumpThreshold: float = 0.3;
 @export var G: int = 10000000
 @onready var shapecast = $ShapeCast2D
 @export var hud: Control;
@@ -55,13 +57,13 @@ func _physics_process(delta: float) -> void:
 		sprite.texture = jumpSprite;
 		grounded = false;
 	else:
-		if !grounded:
-			direction = 0;
+		#if !grounded:
+		direction *= FRICTION;
 		grounded = true;
 		sprite.texture = idleSprite;
-		if Input.is_action_pressed("primary"):
+		if Input.is_action_just_pressed("primary"):
 			var yVel = max(0,-sin(arrow.rotation))*jump_velocity;
-			if yVel>0:
+			if yVel>jumpThreshold:
 				direction = xDir;
 				magnitude_velocity -= yVel;
 		else: 
