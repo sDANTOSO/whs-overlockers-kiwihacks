@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dehtjdfpm675b"]
+[gd_scene format=3 uid="uid://d0bdoeriquq5k"]
 
 [ext_resource type="PackedScene" uid="uid://c50dplk5sdrci" path="res://Scenes/rocket.tscn" id="1_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ctn6ppinwfx5k" path="res://Assets/platform.png" id="7_2a60c"]
 [ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="7_u1b78"]
 [ext_resource type="PackedScene" uid="uid://cu5jlhwqumt27" path="res://Scenes/platform.tscn" id="8_bdr3p"]
+[ext_resource type="Texture2D" uid="uid://cv1k0gpvcvs1c" path="res://Assets/arrow.png" id="10_bs12r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
 radius = 1024.0
@@ -46,12 +47,13 @@ camera = NodePath("../Camera")
 [node name="Camera" parent="." unique_id=1252687878 node_paths=PackedStringArray("target") instance=ExtResource("2_jgkgd")]
 target = NodePath("../Player")
 
-[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud", "planet") instance=ExtResource("4_rqhku")]
+[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud", "planet", "cam") instance=ExtResource("4_rqhku")]
 position = Vector2(1300, 0)
 AIRSPEED = 7.0
 hud = NodePath("../Camera/Camera2D/CanvasLayer/HUD")
 planet = NodePath("..")
 checkpoint_position = Vector2(0, 1200)
+cam = NodePath("../Camera")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
 gravity_scale = 0.0
@@ -163,6 +165,30 @@ position = Vector2(-174, -1107.0001)
 [node name="Area2D" parent="Checkpoints/Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player", "rocket")]
 player = NodePath("../../../Player")
 rocket = NodePath("../../../Rocket")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=406569110]
+position = Vector2(1075.0001, -116.999985)
+rotation = 1.4374452
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_bs12r")
+
+[node name="Arrow2" type="Sprite2D" parent="." unique_id=179572877]
+position = Vector2(1170.0001, -305.00006)
+rotation = 1.2851331
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_bs12r")
+
+[node name="Arrow3" type="Sprite2D" parent="." unique_id=958794279]
+position = Vector2(900, -902)
+rotation = 0.6009038
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_bs12r")
+
+[node name="Arrow4" type="Sprite2D" parent="." unique_id=1265588985]
+position = Vector2(323.00003, -1065)
+rotation = 0.05291617
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_bs12r")
 
 [editable path="Camera"]
 [editable path="Player"]

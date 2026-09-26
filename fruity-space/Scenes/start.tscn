@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dvde75bspcexp" path="res://Assets/Settings.png" id="11_qmsyr"]
 [ext_resource type="Texture2D" uid="uid://d3yjjkum08gq5" path="res://Assets/night_sky.png" id="15_ss8vn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y71vl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ss8vn"]
 texture = ExtResource("15_ss8vn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -166,7 +166,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_w5kog"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_y71vl")
+sources/0 = SubResource("TileSetAtlasSource_ss8vn")
 
 [sub_resource type="ImageTexture" id="ImageTexture_fu252"]
 

@@ -15,6 +15,7 @@ extends CharacterBody2D
 var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
+@export var cam: Node2D;
 
 @onready var arrow: Sprite2D = $ArrowSprite;
 @onready var sprite: Sprite2D = $Sprite2D;
@@ -82,13 +83,14 @@ func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1
 		frames_since_last_damaged = 0
-		#print(health)
 		hud.display_health(health)
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health
 		hud.display_health(health)
-
+		cam.damage_fx(false);
+	else:
+		cam.damage_fx(true);
 
 func set_checkpoint(pos: Vector2):
 	lastCheckpoint = pos;

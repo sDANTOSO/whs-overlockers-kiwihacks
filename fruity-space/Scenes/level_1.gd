@@ -1,10 +1,11 @@
-extends Node
+extends Node2D
+
 @onready var camera_2d: Camera2D = $Camera/Camera2D
 @export var circle_radius:int = 1024
-@onready var planet_v_2: Sprite2D = $PlanetV2
+@onready var planet_v_2: Sprite2D = $RigidBody2D/Sprite2D
 @onready var hud: HUD = $Camera/Camera2D/CanvasLayer/HUD
 @onready var platforms: Node2D = $Platforms
-@onready var rocket: Sprite2D = $Rocket
+##@onready var rocket: Sprite2D = $Rocket
 
 func _ready() -> void:
 	hud.visible = false
@@ -17,7 +18,7 @@ func _ready() -> void:
 	Globals.planet_rotation = planet_v_2.rotation
 	##sawait get_tree().create_timer(2.0).timeout
 	var tween = create_tween()
-	tween.tween_property(camera_2d, "position", Vector2(0, 0), 2.0).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera_2d, "position", Vector2($Player.position.x, $Player.position.y), 2.0).set_trans(Tween.TRANS_CUBIC)
 	zoom_out()
 	await get_tree().create_timer(2.0).timeout
 	hud.visible= true
@@ -43,7 +44,7 @@ func _process(delta: float) -> void:
 	zoom_outend()
 	##hide brown stuff in betwen
 	await get_tree().create_timer(3).timeout
-	platforms.visibility = false
+	platforms.visible = false
 	##change start 
 	
 	##rotate of planet
@@ -56,10 +57,3 @@ func _process(delta: float) -> void:
 func zoom_outend() -> void:
 	var tween = create_tween()
 	tween.tween_property(camera_2d, "zoom", Vector2(0.35, 0.35), 4.0).set_trans(Tween.TRANS_CUBIC)
-	##print($PlanetV2.position.x)
-	##print($PlanetV2.position.y)
-	#camera_2d.position.x = 600
-	#camera_2d.position.y = 1337
-	#camera_2d.zoom.x = 0.35
-	#camera_2d.zoom.y = 0.35
-	
