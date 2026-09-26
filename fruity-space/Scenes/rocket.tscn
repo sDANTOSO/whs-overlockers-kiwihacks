@@ -4,6 +4,32 @@
 [ext_resource type="Texture2D" uid="uid://dstif3lfqsrpv" path="res://Assets/rocket.png" id="1_kvp10"]
 [ext_resource type="Texture2D" uid="uid://7jbok2ruh1ij" path="res://Assets/rocket_person.png" id="2_hthiq"]
 
+[sub_resource type="Gradient" id="Gradient_hthiq"]
+colors = PackedColorArray(0.822911, 0.46079844, 5.7756904e-07, 1, 0.69020194, 0.17799073, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ktfyh"]
+gradient = SubResource("Gradient_hthiq")
+
+[sub_resource type="Curve" id="Curve_n4fq7"]
+_data = [Vector2(0, 0), 0.0, 3.8041742, 0, 0, Vector2(1, 0), -8.210668, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g1dff"]
+curve = SubResource("Curve_n4fq7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cq4jf"]
+particle_flag_disable_z = true
+angle_min = -343.5
+angle_max = 680.7
+direction = Vector3(0, 1, 0)
+spread = 66.977
+initial_velocity_max = 64.909996
+gravity = Vector3(0, 98, 0)
+scale_min = 3.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_g1dff")
+color_ramp = SubResource("GradientTexture1D_ktfyh")
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3w1rt"]
 animations = [{
 "frames": [{
@@ -25,6 +51,14 @@ animations = [{
 
 [node name="Rocket" type="Node2D" unique_id=1936699757]
 script = ExtResource("1_hthiq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=819547392]
+position = Vector2(0, 33)
+amount = 42
+lifetime = 0.85
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_cq4jf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=732519113]
 sprite_frames = SubResource("SpriteFrames_3w1rt")
