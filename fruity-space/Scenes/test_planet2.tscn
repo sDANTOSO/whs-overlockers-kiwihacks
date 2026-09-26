@@ -71,6 +71,9 @@ script = null
 [node name="Area2D" parent="Path2D/PathFollow2D/evil_enemy" index="0" unique_id=1102634025 node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
 
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/evil_enemy/Area2D" index="0" unique_id=900894755]
+position = Vector2(0, 0)
+
 [node name="Platforms" type="Node2D" parent="." unique_id=217250550]
 
 [node name="platform" parent="Platforms" unique_id=1459076347 instance=ExtResource("8_8xu40")]

@@ -20,7 +20,6 @@ func collect_anim():
 		# increase global amount collected here
 		Globals.reduce_collectables();
 
-
 func collect_apply():
 	# destroy the collectable
 	queue_free();

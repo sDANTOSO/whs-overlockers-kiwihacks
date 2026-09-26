@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	var mousePos = get_global_mouse_position();
 	arrow.look_at(mousePos)
 
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if direction > 0:
 		sprite.flip_h = false;
 	elif direction < 0:
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		grounded = true;
 		sprite.texture = idleSprite;
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("jump"):
 			velocity-=diffToPlanet*jump_velocity;
 	
 	var rightward = transform.x;
@@ -82,7 +82,6 @@ func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1
 		frames_since_last_damaged = 0
-		#print(health)
 		hud.display_health(health)
 	if health <= 0:
 		goto_checkpoint()
