@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if is_leaving:
-		position.y -= 10;
+		position += Vector2.UP.rotated(rotation) * 3
 
 func leave():
 	player.hide()
