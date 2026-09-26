@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 
 @export var GROUNDSPEED:float = 100
-@export var AIRSPEED:float = 15
+@export var AIRSPEED:float = 5
+@export var MAXAIRSPEED: float = 15;
 @export var FRICTION: float = 0.8;
-@export var G: float = 20000000;
+@export var G: float = 15;
 @export var jump_velocity: int = 700
 @export var jumpThreshold: float = 0.3;
 
@@ -61,9 +62,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if !grounded:
-		var inverseSquaredDist = 1 / position.distance_squared_to(planet.position);
-		velocity += diffToPlanet * G * inverseSquaredDist;
-		velocity+=horizontalVelocity*AIRSPEED;
+		velocity += diffToPlanet * G;
+		if velocity.length()<MAXAIRSPEED:
+			velocity+=horizontalVelocity*AIRSPEED;
 	else:
 		velocity+=horizontalVelocity*GROUNDSPEED;
 		velocity *= FRICTION
