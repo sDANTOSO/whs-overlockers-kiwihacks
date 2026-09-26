@@ -3,6 +3,8 @@ extends Node
 @export var circle_radius:int = 1024
 @onready var planet_v_2: Sprite2D = $PlanetV2
 @onready var hud: HUD = $Camera/Camera2D/CanvasLayer/HUD
+@onready var platforms: Node2D = $Platforms
+@onready var rocket: Sprite2D = $Rocket
 
 func _ready() -> void:
 	hud.visible = false
@@ -32,6 +34,28 @@ func zoom_out() -> void:
 	
 func _process(delta: float) -> void:
 	pass
+	
+	
+	## on signal
+	## zoom out of planet 
+	var tween = create_tween()
+	tween.tween_property(camera_2d, "position", Vector2(600, 1337), 4.0).set_trans(Tween.TRANS_CUBIC)
+	zoom_outend()
+	##hide brown stuff in betwen
+	await get_tree().create_timer(3).timeout
+	platforms.visibility = false
+	##change start 
+	
+	##rotate of planet
+	planet_v_2.rotation= planet_v_2.rotation+0.0005
+	Globals.planet_rotation =planet_v_2.rotation
+	##rocket instantly shoots off
+	
+	## game ends with planet rotating 
+	
+func zoom_outend() -> void:
+	var tween = create_tween()
+	tween.tween_property(camera_2d, "zoom", Vector2(0.35, 0.35), 4.0).set_trans(Tween.TRANS_CUBIC)
 	##print($PlanetV2.position.x)
 	##print($PlanetV2.position.y)
 	#camera_2d.position.x = 600
