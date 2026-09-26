@@ -4,6 +4,9 @@ var totalColectables: int = 0;
 
 var max_possible_health := 12;
 
+var planet_rotation: =0;
+
+
 func new_collectable():
 	totalColectables+=1;
 

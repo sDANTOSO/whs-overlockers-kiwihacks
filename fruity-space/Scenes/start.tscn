@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://o1jmts7q4niu" path="res://Assets/playButton.png" id="3_lb6bl"]
 [ext_resource type="BitMap" uid="uid://j0geool73wjm" path="res://Assets/playclickmaskv1.png" id="4_o3wvq"]
 [ext_resource type="Texture2D" uid="uid://0y1kvkvrkatw" path="res://Assets/quitButton.png" id="4_rk01k"]
+[ext_resource type="Texture2D" uid="uid://cngdlqx3vutgf" path="res://Assets/logov2.png" id="5_1tr1b"]
 [ext_resource type="Script" uid="uid://begwxr6t21ugf" path="res://Scripts/play_button.gd" id="5_pg4io"]
 [ext_resource type="BitMap" uid="uid://cgjwfgsuh67ia" path="res://Assets/quitClickmaskv1.png" id="6_pg4io"]
 [ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scripts/quit_button.gd" id="8_iceld"]
@@ -49,9 +50,14 @@ scale = Vector2(4.5, 4.5)
 texture = SubResource("ImageTexture_fu252")
 
 [node name="Logov1" type="Sprite2D" parent="." unique_id=2131334396]
-position = Vector2(576, 101.00001)
+position = Vector2(-338, 137)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_r48yj")
+
+[node name="Logov2" type="Sprite2D" parent="." unique_id=1713683424]
+position = Vector2(575, 116)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("5_1tr1b")
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=328454691]
 layout_mode = 0
@@ -90,8 +96,6 @@ script = ExtResource("8_iceld")
 position = Vector2(562, 1340)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("10_5bn4p")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1948974284]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1474023344]
 position = Vector2(575, 334)
