@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dehtjdfpm675b"]
+
+[ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
+[ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="3_bs12r"]
+[ext_resource type="PackedScene" uid="uid://8k1sr0b3kpet" path="res://Scenes/player.tscn" id="4_rqhku"]
+[ext_resource type="Texture2D" uid="uid://bby1rd68m7hfk" path="res://Assets/planet-v1.png" id="5_cpkqv"]
+[ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="6_d1mwp"]
+[ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="7_u1b78"]
+[ext_resource type="PackedScene" uid="uid://cu5jlhwqumt27" path="res://Scenes/platform.tscn" id="8_bdr3p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
+radius = 1024.0
+
+[sub_resource type="Curve2D" id="Curve2D_747j0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1385, -525, 0, 0, 0, 0, 1107, -449)
+}
+point_count = 2
+
+[node name="TestPlanet" type="Node2D" unique_id=1306942870]
+
+[node name="Camera" parent="." unique_id=1252687878 node_paths=PackedStringArray("target") instance=ExtResource("2_jgkgd")]
+target = NodePath("../Player")
+
+[node name="Sprite2D" parent="." unique_id=1418146030 instance=ExtResource("3_bs12r")]
+position = Vector2(700, 900)
+
+[node name="Area2D" parent="Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud", "planet") instance=ExtResource("4_rqhku")]
+position = Vector2(1300, 0)
+AIRSPEED = 7.0
+hud = NodePath("../Camera/Camera2D/CanvasLayer/HUD")
+planet = NodePath("..")
+checkpoint_position = Vector2(0, 1200)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1139590701]
+shape = SubResource("CircleShape2D_cq4jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1919776171]
+position = Vector2(-5, 0)
+scale = Vector2(13.6, 13.6)
+texture = ExtResource("5_cpkqv")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=141078179]
+curve = SubResource("Curve2D_747j0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1106948108]
+position = Vector2(1385, -525)
+rotation = 2.874732
+script = ExtResource("6_d1mwp")
+
+[node name="evil_enemy" parent="Path2D/PathFollow2D" unique_id=1207656625 instance=ExtResource("7_u1b78")]
+script = null
+
+[node name="Area2D" parent="Path2D/PathFollow2D/evil_enemy" index="0" unique_id=1102634025 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../Player")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=217250550]
+
+[node name="platform" parent="Platforms" unique_id=1459076347 instance=ExtResource("8_bdr3p")]
+position = Vector2(1101, -271.00003)
+rotation = 1.2300916
+
+[node name="platform2" parent="Platforms" unique_id=70939101 instance=ExtResource("8_bdr3p")]
+position = Vector2(998.0001, -606)
+rotation = 1.0732855
+
+[node name="platform3" parent="Platforms" unique_id=1893528493 instance=ExtResource("8_bdr3p")]
+position = Vector2(921.99994, -931)
+rotation = 0.9444728
+
+[editable path="Camera"]
+[editable path="Sprite2D"]
+[editable path="Player"]
+[editable path="Path2D/PathFollow2D/evil_enemy"]

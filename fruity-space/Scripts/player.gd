@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var shapecast = $ShapeCast2D
 @export var hud: Control;
 @export var planet: Node2D;
-@export var max_health: int = 10;
+@export var max_health: int = 3;
 var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
@@ -32,6 +32,7 @@ func _ready() -> void:
 	hud.display_health(health)
 
 func goto_checkpoint():
+	
 	pass
 
 func _physics_process(delta: float) -> void:

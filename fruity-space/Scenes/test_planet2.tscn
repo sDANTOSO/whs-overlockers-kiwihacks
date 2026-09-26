@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dehtjdfpm675b"]
+[gd_scene format=3 uid="uid://ckyucfle1iql"]
 
 [ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_o0eij"]
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_8xu40"]
