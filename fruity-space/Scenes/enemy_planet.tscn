@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ceiwtjlc6xolg"]
+
+[ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_hiosp"]
+[ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="2_4wstj"]
+[ext_resource type="PackedScene" uid="uid://bx76id5dv6bm3" path="res://Scenes/player.tscn" id="3_4wstj"]
+[ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="4_747j0"]
+[ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="4_hiosp"]
+[ext_resource type="Texture2D" uid="uid://bupdaej36xveh" path="res://Assets/Circle_(transparent).png" id="4_hl06r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
+radius = 1024.0
+
+[sub_resource type="Curve2D" id="Curve2D_747j0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1300, 787, 0, 0, 0, 0, 1046, 464, 0, 0, 0, 0, 1584, 167)
+}
+point_count = 3
+
+[node name="TestPlanet" type="Node2D" unique_id=1306942870]
+script = ExtResource("1_hiosp")
+circle_radius = 0
+
+[node name="Sprite2D" parent="." unique_id=1418146030 instance=ExtResource("2_4wstj")]
+position = Vector2(700, 900)
+
+[node name="Area2D" parent="Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="Player" parent="." unique_id=281807801 instance=ExtResource("3_4wstj")]
+position = Vector2(1300, 0)
+checkpoint_position = Vector2(0, 1200)
+
+[node name="Camera2D" parent="Player" index="2" unique_id=678578449]
+ignore_rotation = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1139590701]
+shape = SubResource("CircleShape2D_cq4jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1919776171]
+scale = Vector2(2, 2)
+texture = ExtResource("4_hl06r")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=141078179]
+curve = SubResource("Curve2D_747j0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1106948108]
+position = Vector2(1300, 787)
+rotation = -2.2371757
+script = ExtResource("4_747j0")
+
+[node name="evil_enemy" parent="Path2D/PathFollow2D" unique_id=1207656625 instance=ExtResource("4_hiosp")]
+script = null
+
+[node name="Area2D" parent="Path2D/PathFollow2D/evil_enemy" index="0" unique_id=1102634025 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../Player")
+
+[editable path="Sprite2D"]
+[editable path="Player"]
+[editable path="Path2D/PathFollow2D/evil_enemy"]

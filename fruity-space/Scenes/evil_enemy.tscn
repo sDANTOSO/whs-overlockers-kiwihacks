@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bnf2da3nf22m0"]
+
+[ext_resource type="Texture2D" uid="uid://c7l07ild0e0xj" path="res://Assets/icon.svg" id="1_26uav"]
+[ext_resource type="Script" uid="uid://b8a6cow7hkuo0" path="res://Scripts/area_2d.gd" id="2_phuy1"]
+
+[sub_resource type="GDScript" id="GDScript_26uav"]
+script/source = "extends Sprite2D
+ 
+@onready var path = $\"..\"
+
+const SPEED = 300.0
+
+
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
+size = Vector2(128, 128)
+
+[node name="evil_enemy" type="Sprite2D" unique_id=1696010577 groups=["Enemies"]]
+texture = ExtResource("1_26uav")
+script = SubResource("GDScript_26uav")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1102634025]
+script = ExtResource("2_phuy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=900894755]
+shape = SubResource("RectangleShape2D_cq4jf")
