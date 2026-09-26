@@ -10,4 +10,4 @@ func collision(body: Node2D):
 	if body.is_in_group("Player") and not activated :
 		print("Player IN")
 		activated = true
-		player.handle_checkpoint(global_position)
+		player.set_checkpoint(global_position)

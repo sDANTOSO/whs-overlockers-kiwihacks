@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dehtjdfpm675b"]
+[gd_scene format=3 uid="uid://d0bdoeriquq5k"]
 
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="3_bs12r"]

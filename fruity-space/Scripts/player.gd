@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var GROUNDSPEED:float = 100
 @export var AIRSPEED:float = 15
 @export var MAXAIRSPEED: float = 600;
@@ -24,16 +23,17 @@ var health: int = max_health
 
 
 var frames_since_last_damaged = 100;
+var lastCheckpoint: Vector2;
 
 var grounded: bool = false;
 
 func _ready() -> void:
 	goto_checkpoint()
 	hud.display_health(health)
+	lastCheckpoint = position;
 
 func goto_checkpoint():
-	
-	pass
+	global_position = lastCheckpoint;
 
 func _physics_process(delta: float) -> void:
 	look_at(planet.position)
@@ -87,10 +87,6 @@ func handle_damage():
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health
-		
-func handle_checkpoint(pos: Vector2):
-	checkpoint_position = Vector2 (
-	 	atan2(pos.y, pos.x),
-		Vector2(pos.x, pos.y).length()
-	)
-	
+
+func set_checkpoint(pos: Vector2):
+	lastCheckpoint = pos;
