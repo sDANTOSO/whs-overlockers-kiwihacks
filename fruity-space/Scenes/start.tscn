@@ -50,6 +50,7 @@ scale = Vector2(4.5, 4.5)
 texture = SubResource("ImageTexture_fu252")
 
 [node name="Logov1" type="Sprite2D" parent="." unique_id=2131334396]
+visible = false
 position = Vector2(-338, 137)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_r48yj")
@@ -82,6 +83,7 @@ texture_click_mask = ExtResource("6_pg4io")
 script = ExtResource("8_iceld")
 
 [node name="SettingsButton2" type="TextureButton" parent="." unique_id=46331952]
+visible = false
 layout_mode = 0
 offset_left = 1002.0
 offset_top = 36.0

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://djag1ld3uufki"]
 
-[ext_resource type="PackedScene" uid="uid://bx76id5dv6bm3" path="res://Scenes/player.tscn" id="1_4txwd"]
+[ext_resource type="PackedScene" uid="uid://8k1sr0b3kpet" path="res://Scenes/player.tscn" id="1_4txwd"]
 [ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_efaey"]
 [ext_resource type="Texture2D" uid="uid://bupdaej36xveh" path="res://Assets/Circle_(transparent).png" id="2_lljo5"]
 [ext_resource type="PackedScene" uid="uid://s3d8uge3iohp" path="res://Scenes/collectable.tscn" id="2_wk8eb"]
+[ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="4_vdsoj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
 radius = 1024.0
@@ -20,6 +21,11 @@ position = Vector2(1300, 0)
 
 [node name="Camera2D" parent="Player" index="2" unique_id=678578449]
 ignore_rotation = false
+
+[node name="PlanetV2" type="Sprite2D" parent="Player" unique_id=1845253802]
+position = Vector2(-1300, 0)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_vdsoj")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
 gravity_scale = 0.0

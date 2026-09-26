@@ -24,8 +24,14 @@ func _on_play_button_pressed() -> void:
 	var tween = create_tween()
 	zoom_out()
 	tween.tween_property(camera_2d, "position", Vector2(600, 1337), 4.0).set_trans(Tween.TRANS_CUBIC)
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(8).timeout
 	get_tree().change_scene_to_packed(GAME_SCENE)
 func zoom_out() -> void:
 	var tween = create_tween()
 	tween.tween_property(camera_2d, "zoom", Vector2(0.35, 0.35), 4.0).set_trans(Tween.TRANS_CUBIC)
+	await get_tree().create_timer(5.0).timeout
+	zoom_in()
+	
+func zoom_in() -> void:
+	var tween = create_tween()
+	tween.tween_property(camera_2d, "zoom", Vector2(5, 5), 3).set_trans(Tween.TRANS_CUBIC)
