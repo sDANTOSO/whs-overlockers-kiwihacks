@@ -16,3 +16,6 @@ Created by:
 - James Howard (Developer)
 - Santoso Winatan (Animations, Assets, UI)
 
+About:
+Play at: https://monkeyasaurus.itch.io/space-fruit
+
