@@ -7,11 +7,15 @@ var magnitude:float = 1200;
 @export var jump_velocity: int = 5
 @export var G: int = 10000000
 @onready var shapecast = $ShapeCast2D
-@onready var hud = $"../Camera/Camera2D/CanvasLayer/HUD"
+@export var hud: Control;
 @export var max_health: int = 10;
 var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
+
+@onready var sprite: Sprite2D = $Sprite2D;
+@export var idleSprite : Texture;
+@export var jumpSprite : Texture;
 
 
 var frames_since_last_damaged = 100;
@@ -22,7 +26,6 @@ func _ready() -> void:
 	goto_checkpoint()
 	hud.display_health(health)
 
-	
 func goto_checkpoint():
 	theta = checkpoint_position.x
 	magnitude = checkpoint_position.y
@@ -32,14 +35,21 @@ func goto_checkpoint():
 		magnitude * cos(theta),
 		magnitude * sin(theta)
 	)
-	
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
+	
+	if direction > 0:
+		sprite.flip_h = false;
+	elif direction < 0:
+		sprite.flip_h = true;
 	
 	if not shapecast.is_colliding():
 		var A = G / max(magnitude * magnitude, 0.1)
 		magnitude_velocity += A * delta
+		sprite.texture = jumpSprite;
 	else:
+		sprite.texture = idleSprite;
 		if Input.is_action_pressed("ui_accept"):
 			magnitude_velocity -= jump_velocity
 		else: 
@@ -69,7 +79,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("checkpoint"):
 		goto_checkpoint()
-		
+
 func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1

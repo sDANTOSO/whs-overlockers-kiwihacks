@@ -1,10 +1,9 @@
-[gd_scene format=3 uid="uid://ceiwtjlc6xolg"]
+[gd_scene format=3 uid="uid://dehtjdfpm675b"]
 
 [ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_o0eij"]
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_8xu40"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="3_b06hq"]
 [ext_resource type="PackedScene" uid="uid://8k1sr0b3kpet" path="res://Scenes/player.tscn" id="4_cdedg"]
-[ext_resource type="Script" uid="uid://dsxkmkw28u3iy" path="res://Scripts/player.gd" id="5_8xu40"]
 [ext_resource type="Texture2D" uid="uid://bupdaej36xveh" path="res://Assets/Circle_(transparent).png" id="5_uolre"]
 [ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="6_jxygr"]
 [ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="7_jtigk"]
@@ -31,9 +30,9 @@ position = Vector2(700, 900)
 [node name="Area2D" parent="Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
 
-[node name="Player" parent="." unique_id=281807801 instance=ExtResource("4_cdedg")]
+[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud") instance=ExtResource("4_cdedg")]
 position = Vector2(1300, 0)
-script = ExtResource("5_8xu40")
+hud = NodePath("../Camera/Camera2D/CanvasLayer/HUD")
 checkpoint_position = Vector2(0, 1200)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]

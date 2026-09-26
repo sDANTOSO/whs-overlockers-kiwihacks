@@ -1,4 +1,5 @@
 extends Control
+class_name HUD
 
 const heart = preload("res://Scenes/heart.tscn")
 
