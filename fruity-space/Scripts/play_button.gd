@@ -1,6 +1,6 @@
 extends TextureButton
 @onready var play_button: TextureButton = $"."
-
+const GAME_SCENE = preload("res://Scenes/start.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,8 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	
-	pass
+	get_tree().change_scene_to_packed(GAME_SCENE)
 
 
 
