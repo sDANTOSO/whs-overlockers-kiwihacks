@@ -1,15 +1,17 @@
 extends CharacterBody2D
 
 
-@export var SPEED:float = 300
-@export var FRICTION: float = 0.92;
-var theta:float = 0;
-var magnitude:float = 1200;
-@export var jump_velocity: int = 5
+@export var GROUNDSPEED:float = 100
+@export var AIRSPEED:float = 5
+@export var MAXAIRSPEED: float = 15;
+@export var FRICTION: float = 0.8;
+@export var G: float = 15;
+@export var jump_velocity: int = 700
 @export var jumpThreshold: float = 0.3;
-@export var G: int = 10000000
+
 @onready var shapecast = $ShapeCast2D
 @export var hud: Control;
+@export var planet: Node2D;
 @export var max_health: int = 10;
 var health: int = max_health
 @export var damage_cooldown: int = 10
@@ -22,8 +24,6 @@ var health: int = max_health
 
 
 var frames_since_last_damaged = 100;
-var magnitude_velocity = 0;
-var direction = 0;
 
 var grounded: bool = false;
 
@@ -32,66 +32,44 @@ func _ready() -> void:
 	hud.display_health(health)
 
 func goto_checkpoint():
-	theta = checkpoint_position.x
-	magnitude = checkpoint_position.y
-	theta = wrapf(theta, 0, TAU)
-	rotation = theta + PI/2
-	position = Vector2(
-		magnitude * cos(theta),
-		magnitude * sin(theta)
-	)
+	pass
 
 func _physics_process(delta: float) -> void:
+	look_at(planet.position)
+	rotate(deg_to_rad(-90));
+	
 	var mousePos = get_global_mouse_position();
 	arrow.look_at(mousePos)
 
-	var xDir = cos(arrow.rotation);
-	if xDir > 0:
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction > 0:
 		sprite.flip_h = false;
-	elif xDir < 0:
+	elif direction < 0:
 		sprite.flip_h = true;
 
+	var diffToPlanet: Vector2 = (planet.position - position).normalized();
 	if not shapecast.is_colliding():
-	#	var A = G / max(magnitude * magnitude, 0.1)
-	#	magnitude_velocity += A * delta
 		sprite.texture = jumpSprite;
 		grounded = false;
 	else:
-	#	#if !grounded:
-		direction *= FRICTION;
-	#	grounded = true;
-	#	sprite.texture = idleSprite;
-	if Input.is_action_just_pressed("primary"):
-		var yVel = max(0,-sin(arrow.rotation))*jump_velocity;
-		if yVel>jumpThreshold:
-			direction = xDir;
-			magnitude_velocity -= yVel;
-	else: 
-		magnitude_velocity = 0.0
-		
-	magnitude -= magnitude_velocity
+		grounded = true;
+		sprite.texture = idleSprite;
+		if Input.is_action_just_pressed("ui_accept"):
+			velocity-=diffToPlanet*jump_velocity;
 	
-	var angular_speed = SPEED / max(magnitude, 0.1)
-	var next_theta = theta + (direction * angular_speed * delta)
-	next_theta = wrapf(next_theta, 0, TAU)
+	var rightward = transform.x;
+	var horizontalVelocity = direction*rightward;
 	
-	var target_position = Vector2(
-		magnitude * cos(next_theta),
-		magnitude * sin(next_theta)
-	)
 	
-	velocity = (target_position - position) / delta
-	var velX = velocity.x;
-	if move_and_slide():
-		theta = position.angle()
-		rotation = theta + PI/2
-		
-		if velX!=0 && velocity.x==0:
-			print("hit wall");
+	if !grounded:
+		velocity += diffToPlanet * G;
+		if velocity.length()<MAXAIRSPEED:
+			velocity+=horizontalVelocity*AIRSPEED;
 	else:
-		theta = next_theta
-		rotation = theta + PI/2
-		
+		velocity+=horizontalVelocity*GROUNDSPEED;
+		velocity *= FRICTION
+
+	move_and_slide();
 	frames_since_last_damaged += 1
 
 	if Input.is_action_pressed("checkpoint"):

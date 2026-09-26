@@ -37,9 +37,10 @@ position = Vector2(700, 900)
 [node name="Area2D" parent="Sprite2D" index="0" unique_id=1287813010 node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
 
-[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud") instance=ExtResource("4_cdedg")]
+[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud", "planet") instance=ExtResource("4_cdedg")]
 position = Vector2(1300, 0)
 hud = NodePath("../Camera/Camera2D/CanvasLayer/HUD")
+planet = NodePath("..")
 checkpoint_position = Vector2(0, 1200)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
