@@ -1,21 +1,27 @@
 extends CharacterBody2D
 
+
 @export var SPEED:float = 300
 var theta:float = 0;
 var magnitude:float = 1200;
 @export var jump_velocity: int = 5
 @export var G: int = 10000000
 @onready var shapecast = $ShapeCast2D
+@onready var hud = $"../Camera/Camera2D/CanvasLayer/HUD"
 @export var max_health: int = 10;
 var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
 
+
 var frames_since_last_damaged = 100;
 var magnitude_velocity = 0;
 
+
 func _ready() -> void:
 	goto_checkpoint()
+	hud.display_health(health)
+
 	
 func goto_checkpoint():
 	theta = checkpoint_position.x
@@ -68,7 +74,8 @@ func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1
 		frames_since_last_damaged = 0
-		print(health);
+		print(health)
+		hud.display_health(health)
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health

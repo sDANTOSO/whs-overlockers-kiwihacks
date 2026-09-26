@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dq7pdle6kvkf8"]
+
+[ext_resource type="Script" uid="uid://04nacuynne5x" path="res://Scripts/camera.gd" id="1_yqtc1"]
+[ext_resource type="PackedScene" uid="uid://r71noi46v6b1" path="res://Scenes/hud.tscn" id="2_f1cf7"]
+
+[node name="Camera" type="Node2D" unique_id=1252687878]
+script = ExtResource("1_yqtc1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=536019019]
+ignore_rotation = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=74519373]
+
+[node name="HUD" parent="Camera2D/CanvasLayer" unique_id=968605810 instance=ExtResource("2_f1cf7")]

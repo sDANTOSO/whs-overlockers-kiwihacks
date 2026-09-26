@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ceiwtjlc6xolg"]
+[gd_scene format=3 uid="uid://dssbvnviwkc3b"]
 
 [ext_resource type="Script" uid="uid://c4ih7tbvxawu2" path="res://Scripts/test_planet.gd" id="1_hiosp"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="2_4wstj"]
