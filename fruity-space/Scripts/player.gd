@@ -1,22 +1,34 @@
 extends CharacterBody2D
 
+
 @export var SPEED:float = 300
 var theta:float = 0;
 var magnitude:float = 1200;
 @export var jump_velocity: int = 5
 @export var G: int = 10000000
 @onready var shapecast = $ShapeCast2D
+@export var hud: Control;
 @export var max_health: int = 10;
 var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
 
+@onready var arrow: Sprite2D = $ArrowSprite;
+@onready var sprite: Sprite2D = $Sprite2D;
+@export var idleSprite : Texture;
+@export var jumpSprite : Texture;
+
+
 var frames_since_last_damaged = 100;
 var magnitude_velocity = 0;
+var direction = 0;
+
+var grounded: bool = false;
 
 func _ready() -> void:
 	goto_checkpoint()
-	
+	hud.display_health(health)
+
 func goto_checkpoint():
 	theta = checkpoint_position.x
 	magnitude = checkpoint_position.y
@@ -26,16 +38,32 @@ func goto_checkpoint():
 		magnitude * cos(theta),
 		magnitude * sin(theta)
 	)
-	
+
 func _physics_process(delta: float) -> void:
-	var direction := Input.get_axis("ui_left", "ui_right")
-	
+	var mousePos = get_global_mouse_position();
+	arrow.look_at(mousePos)
+
+	var xDir = cos(arrow.rotation);
+	if xDir > 0:
+		sprite.flip_h = false;
+	elif xDir < 0:
+		sprite.flip_h = true;
+
 	if not shapecast.is_colliding():
 		var A = G / max(magnitude * magnitude, 0.1)
 		magnitude_velocity += A * delta
+		sprite.texture = jumpSprite;
+		grounded = false;
 	else:
-		if Input.is_action_pressed("ui_accept"):
-			magnitude_velocity -= jump_velocity
+		if !grounded:
+			direction = 0;
+		grounded = true;
+		sprite.texture = idleSprite;
+		if Input.is_action_pressed("primary"):
+			var yVel = max(0,-sin(arrow.rotation))*jump_velocity;
+			if yVel>0:
+				direction = xDir;
+				magnitude_velocity -= yVel;
 		else: 
 			magnitude_velocity = 0.0
 		
@@ -63,12 +91,13 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("checkpoint"):
 		goto_checkpoint()
-		
+
 func handle_damage():
 	if frames_since_last_damaged >= damage_cooldown:
 		health -= 1
 		frames_since_last_damaged = 0
-		print(health);
+		#print(health)
+		hud.display_health(health)
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health

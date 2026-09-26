@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://bx76id5dv6bm3"]
+[gd_scene format=3 uid="uid://8k1sr0b3kpet"]
 
-[ext_resource type="Script" uid="uid://bhm0816t7h220" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://dsxkmkw28u3iy" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://bys7nk5sq33xo" path="res://Assets/astronautJump.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://c36jyu48duhdq" path="res://Assets/astronaut.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
@@ -11,6 +12,8 @@ size = Vector2(100, 2)
 
 [node name="Player" type="CharacterBody2D" unique_id=281807801 groups=["Player"]]
 script = ExtResource("1_cvnsp")
+idleSprite = ExtResource("2_cvnsp")
+jumpSprite = ExtResource("2_6t5aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009331673]
 shape = SubResource("RectangleShape2D_cq4jf")
@@ -19,6 +22,11 @@ shape = SubResource("RectangleShape2D_cq4jf")
 position = Vector2(0, -9)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_cvnsp")
+
+[node name="ArrowSprite" type="Sprite2D" parent="." unique_id=1502473875 groups=["Player"]]
+scale = Vector2(4.9374986, 0.31249997)
+texture = ExtResource("2_cvnsp")
+offset = Vector2(30, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=678578449]
 
