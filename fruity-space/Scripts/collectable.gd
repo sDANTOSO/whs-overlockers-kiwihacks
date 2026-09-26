@@ -5,8 +5,16 @@ func _ready() -> void:
 	self.body_entered.connect(collision);
 
 func collision(body: Node2D):
-	if body.is_in_group("player"):
-		collect();
+	#print("col: "+ body.name+" : "+ str(body.is_in_group("Player")));
+	if body.is_in_group("Player"):
+		collect_anim();
 
-func collect():
+func collect_anim():
+	print("Collected!");
+	$AnimationPlayer.play("Collect");
+
+func collect_apply():
+	# increase global amount collected here
+	
+	# destroy the collectable
 	queue_free();

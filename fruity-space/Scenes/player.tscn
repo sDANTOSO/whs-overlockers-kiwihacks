@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bx76id5dv6bm3"]
+
+[ext_resource type="Script" uid="uid://bhm0816t7h220" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://bmiop4qegett2" path="res://Assets/astronaut.png" id="2_cvnsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
+size = Vector2(128, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfyh"]
+size = Vector2(100, 2)
+
+[node name="Player" type="CharacterBody2D" unique_id=281807801 groups=["Player"]]
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009331673]
+shape = SubResource("RectangleShape2D_cq4jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2044473354 groups=["Player"]]
+position = Vector2(0, -63)
+scale = Vector2(8.125, 8.125)
+texture = ExtResource("2_cvnsp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=678578449]
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=212273052]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_ktfyh")
+target_position = Vector2(0, 51)

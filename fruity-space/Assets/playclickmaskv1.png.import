@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://j0geool73wjm"
+path="res://.godot/imported/playclickmaskv1.png-9214bd6ad1f388a5f52ceca640d356e9.res"
+
+[deps]
+
+source_file="res://Assets/playclickmaskv1.png"
+dest_files=["res://.godot/imported/playclickmaskv1.png-9214bd6ad1f388a5f52ceca640d356e9.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
