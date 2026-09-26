@@ -21,3 +21,6 @@ func _physics_process(delta: float) -> void:
 	
 func set_target(new_target: Node2D):
 	target = new_target
+
+func damage_fx(dead: bool):
+	$AnimationPlayer.play("CamDamage");

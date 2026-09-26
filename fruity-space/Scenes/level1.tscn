@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dehtjdfpm675b"]
+[gd_scene format=3 uid="uid://d0bdoeriquq5k"]
 
 [ext_resource type="PackedScene" uid="uid://c50dplk5sdrci" path="res://Scenes/rocket.tscn" id="1_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
@@ -46,12 +46,13 @@ camera = NodePath("../Camera")
 [node name="Camera" parent="." unique_id=1252687878 node_paths=PackedStringArray("target") instance=ExtResource("2_jgkgd")]
 target = NodePath("../Player")
 
-[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud", "planet") instance=ExtResource("4_rqhku")]
+[node name="Player" parent="." unique_id=281807801 node_paths=PackedStringArray("hud", "planet", "cam") instance=ExtResource("4_rqhku")]
 position = Vector2(1300, 0)
 AIRSPEED = 7.0
 hud = NodePath("../Camera/Camera2D/CanvasLayer/HUD")
 planet = NodePath("..")
 checkpoint_position = Vector2(0, 1200)
+cam = NodePath("../Camera")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
 gravity_scale = 0.0

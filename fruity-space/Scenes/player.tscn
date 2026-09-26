@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8k1sr0b3kpet"]
 
-[ext_resource type="Script" uid="uid://dsxkmkw28u3iy" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://cghsxy6eglbj0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bys7nk5sq33xo" path="res://Assets/astronautJump.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://c36jyu48duhdq" path="res://Assets/astronaut.png" id="2_cvnsp"]
 
