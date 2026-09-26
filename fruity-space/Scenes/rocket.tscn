@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c50dplk5sdrci"]
 
+[ext_resource type="Script" uid="uid://cyx15cp1evbe0" path="res://Scenes/rocket.gd" id="1_hthiq"]
 [ext_resource type="Texture2D" uid="uid://dstif3lfqsrpv" path="res://Assets/rocket.png" id="1_kvp10"]
 [ext_resource type="Texture2D" uid="uid://7jbok2ruh1ij" path="res://Assets/rocket_person.png" id="2_hthiq"]
 
@@ -23,6 +24,7 @@ animations = [{
 }]
 
 [node name="Rocket" type="Node2D" unique_id=1936699757]
+script = ExtResource("1_hthiq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=732519113]
 sprite_frames = SubResource("SpriteFrames_3w1rt")

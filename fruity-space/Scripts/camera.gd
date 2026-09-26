@@ -18,3 +18,6 @@ func _physics_process(delta: float) -> void:
 	global_position = global_position.lerp(target_pos, weight)
 	
 	rotation = target_rotation
+	
+func set_target(new_target: Node2D):
+	target = new_target
