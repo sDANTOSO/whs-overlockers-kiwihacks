@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c36jyu48duhdq"
-path="res://.godot/imported/astronaut.png-b9e5f22fbb04dac67ac00fe8fa82b3c7.ctex"
+uid="uid://blr3jgxs1l0si"
+path="res://.godot/imported/tomato.png-1df3a27f3a2db4d6cec06d788c468f5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/astronaut.png"
-dest_files=["res://.godot/imported/astronaut.png-b9e5f22fbb04dac67ac00fe8fa82b3c7.ctex"]
+source_file="res://Assets/tomato.png"
+dest_files=["res://.godot/imported/tomato.png-1df3a27f3a2db4d6cec06d788c468f5b.ctex"]
 
 [params]
 
