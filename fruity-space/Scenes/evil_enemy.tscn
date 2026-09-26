@@ -15,7 +15,7 @@ const SPEED = 300.0
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4jf"]
-size = Vector2(19, 13)
+size = Vector2(11, 4)
 
 [node name="evil_enemy" type="Sprite2D" unique_id=1696010577 groups=["Enemies"]]
 scale = Vector2(6, 6)
@@ -26,4 +26,5 @@ script = SubResource("GDScript_26uav")
 script = ExtResource("2_phuy1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=900894755]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_cq4jf")

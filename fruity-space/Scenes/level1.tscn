@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d0bdoeriquq5k"]
+[gd_scene format=3 uid="uid://dehtjdfpm675b"]
 
 [ext_resource type="PackedScene" uid="uid://dq7pdle6kvkf8" path="res://Scenes/camera.tscn" id="2_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://dlu0f2d5md400" path="res://Scenes/checkpoint.tscn" id="3_bs12r"]
@@ -13,7 +13,13 @@ radius = 1024.0
 
 [sub_resource type="Curve2D" id="Curve2D_747j0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1385, -525, 0, 0, 0, 0, 1107, -449)
+"points": PackedVector2Array(0, 0, 0, 0, 1358, -530, 0, 0, 0, 0, 1107, -449)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_2a60c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1548, -634, 0, 0, 0, 0, 794, -1004)
 }
 point_count = 2
 
@@ -50,8 +56,8 @@ texture = ExtResource("5_cpkqv")
 curve = SubResource("Curve2D_747j0")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1106948108]
-position = Vector2(1385, -525)
-rotation = 2.874732
+position = Vector2(1358, -530)
+rotation = 2.8294342
 script = ExtResource("6_d1mwp")
 
 [node name="evil_enemy" parent="Path2D/PathFollow2D" unique_id=1207656625 instance=ExtResource("7_u1b78")]
@@ -62,19 +68,38 @@ player = NodePath("../../../../Player")
 
 [node name="Platforms" type="Node2D" parent="." unique_id=217250550]
 
-[node name="platform" parent="Platforms" unique_id=1459076347 instance=ExtResource("8_bdr3p")]
+[node name="platform4" parent="Platforms" unique_id=1459076347 instance=ExtResource("8_bdr3p")]
+position = Vector2(422, -1271.9999)
+rotation = 0.6632252
+
+[node name="platform" parent="Platforms" unique_id=1194646098 instance=ExtResource("8_bdr3p")]
 position = Vector2(1101, -271.00003)
 rotation = 1.2300916
 
 [node name="platform2" parent="Platforms" unique_id=70939101 instance=ExtResource("8_bdr3p")]
-position = Vector2(998.0001, -606)
-rotation = 1.0732855
+position = Vector2(814, -856.00006)
+rotation = 0.7766715
 
-[node name="platform3" parent="Platforms" unique_id=1893528493 instance=ExtResource("8_bdr3p")]
-position = Vector2(921.99994, -931)
-rotation = 0.9444728
+[node name="platform3" parent="Platforms" unique_id=1972940743 instance=ExtResource("8_bdr3p")]
+position = Vector2(633.00006, -980)
+rotation = 0.33161256
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=1325998467]
+curve = SubResource("Curve2D_2a60c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=135033041]
+position = Vector2(1548, -634)
+rotation = -2.6853998
+script = ExtResource("6_d1mwp")
+
+[node name="evil_enemy" parent="Path2D2/PathFollow2D" unique_id=1696010577 instance=ExtResource("7_u1b78")]
+script = null
+
+[node name="Area2D" parent="Path2D2/PathFollow2D/evil_enemy" index="0" unique_id=1102634025 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../Player")
 
 [editable path="Camera"]
 [editable path="Sprite2D"]
 [editable path="Player"]
 [editable path="Path2D/PathFollow2D/evil_enemy"]
+[editable path="Path2D2/PathFollow2D/evil_enemy"]

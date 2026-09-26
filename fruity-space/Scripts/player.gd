@@ -27,13 +27,13 @@ var lastCheckpoint: Vector2;
 
 var grounded: bool = false;
 
-func _ready() -> void:
-	goto_checkpoint()
-	hud.display_health(health)
+func _ready() -> void:	
 	lastCheckpoint = position;
+	goto_checkpoint()
 
 func goto_checkpoint():
 	global_position = lastCheckpoint;
+	hud.display_health(health)
 
 func _physics_process(delta: float) -> void:
 	look_at(planet.position)
