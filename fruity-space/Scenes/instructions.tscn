@@ -14,8 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Insturctions" type="Sprite2D" parent="." unique_id=516544704]
-position = Vector2(549, 306.00003)
-scale = Vector2(2.5, 2.5)
+position = Vector2(549, 297)
+scale = Vector2(2.5, 2.4375)
 texture = ExtResource("1_s7gfc")
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=1755136120]
@@ -28,6 +28,26 @@ scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("1_5doqj")
 texture_click_mask = ExtResource("2_s7gfc")
 script = ExtResource("3_v8bcc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=290902687]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 40.0
+offset_right = 966.0
+offset_bottom = 542.0
+theme_override_font_sizes/normal_font_size = 30
+text = "You need to get to your spaceship to get home
+You're living off fruit
+
+Follow the arrows
+
+Jump on the platforms
+
+Avoid the alien bugs
+
+Controls are w-a-s-d and space to jump"
+tab_size = 6
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="PlayButton" to="PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="PlayButton" method="_on_mouse_exited"]
