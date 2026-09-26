@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://btu1t77ylm0xs" path="res://Scripts/path_follow_2d.gd" id="6_jxygr"]
 [ext_resource type="PackedScene" uid="uid://bnf2da3nf22m0" path="res://Scenes/evil_enemy.tscn" id="7_jtigk"]
 [ext_resource type="PackedScene" uid="uid://cu5jlhwqumt27" path="res://Scenes/platform.tscn" id="8_8xu40"]
+[ext_resource type="Texture2D" uid="uid://dstif3lfqsrpv" path="res://Assets/rocket.png" id="10_cdedg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cq4jf"]
 radius = 1024.0
@@ -90,6 +91,12 @@ position = Vector2(1002, -1003)
 rotation = 0.9444728
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=576846059]
+
+[node name="Rocket" type="Sprite2D" parent="." unique_id=437542690]
+position = Vector2(1152, 166.99995)
+rotation = 1.8325958
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_cdedg")
 
 [editable path="Camera"]
 [editable path="Sprite2D"]

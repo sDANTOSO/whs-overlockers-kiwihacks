@@ -4,19 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://ccyxcs84emg33" path="res://Assets/Background.png" id="2_7pwkw"]
 [ext_resource type="Texture2D" uid="uid://bwjqw5chgbkoe" path="res://Assets/bg.png" id="2_jwunu"]
 [ext_resource type="Texture2D" uid="uid://b31u8exs2a66" path="res://Assets/logov1.png" id="2_r48yj"]
-[ext_resource type="Texture2D" uid="uid://o1jmts7q4niu" path="res://Assets/playButton.png" id="3_lb6bl"]
 [ext_resource type="BitMap" uid="uid://j0geool73wjm" path="res://Assets/playclickmaskv1.png" id="4_o3wvq"]
-[ext_resource type="Texture2D" uid="uid://0y1kvkvrkatw" path="res://Assets/quitButton.png" id="4_rk01k"]
 [ext_resource type="Texture2D" uid="uid://cngdlqx3vutgf" path="res://Assets/logov2.png" id="5_1tr1b"]
 [ext_resource type="Script" uid="uid://begwxr6t21ugf" path="res://Scripts/play_button.gd" id="5_pg4io"]
 [ext_resource type="BitMap" uid="uid://cgjwfgsuh67ia" path="res://Assets/quitClickmaskv1.png" id="6_pg4io"]
+[ext_resource type="Texture2D" uid="uid://i7bhijuck5rs" path="res://Assets/play_button.png" id="7_ss8vn"]
 [ext_resource type="Script" uid="uid://bqntgnljicl8j" path="res://Scripts/quit_button.gd" id="8_iceld"]
 [ext_resource type="Texture2D" uid="uid://cattslbbgtw1x" path="res://Assets/planet-v2.png" id="10_5bn4p"]
+[ext_resource type="Texture2D" uid="uid://ejgsn1ne3nsg" path="res://Assets/quit_button.png" id="10_w5kog"]
 [ext_resource type="BitMap" uid="uid://bhl1s71cqkn3g" path="res://Assets/Settingsclickmask.png" id="11_knwj7"]
 [ext_resource type="Texture2D" uid="uid://dvde75bspcexp" path="res://Assets/Settings.png" id="11_qmsyr"]
 [ext_resource type="Texture2D" uid="uid://d3yjjkum08gq5" path="res://Assets/night_sky.png" id="15_ss8vn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y71vl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ss8vn"]
 texture = ExtResource("15_ss8vn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -166,7 +166,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_w5kog"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_y71vl")
+sources/0 = SubResource("TileSetAtlasSource_ss8vn")
 
 [sub_resource type="ImageTexture" id="ImageTexture_fu252"]
 
@@ -229,23 +229,23 @@ texture = ExtResource("5_1tr1b")
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=328454691]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 263.0
-offset_right = 329.0
-offset_bottom = 303.0
+offset_left = 312.0
+offset_top = 248.0
+offset_right = 376.0
+offset_bottom = 288.0
 scale = Vector2(4.5, 4.5)
-texture_normal = ExtResource("3_lb6bl")
+texture_normal = ExtResource("7_ss8vn")
 texture_click_mask = ExtResource("4_o3wvq")
 script = ExtResource("5_pg4io")
 
 [node name="QuitButton" type="TextureButton" parent="." unique_id=711320048]
 layout_mode = 0
-offset_left = 619.0
-offset_top = 276.0
-offset_right = 660.0
-offset_bottom = 316.0
+offset_left = 552.0
+offset_top = 248.0
+offset_right = 616.0
+offset_bottom = 288.0
 scale = Vector2(4.5, 4.5)
-texture_normal = ExtResource("4_rk01k")
+texture_normal = ExtResource("10_w5kog")
 texture_click_mask = ExtResource("6_pg4io")
 script = ExtResource("8_iceld")
 
