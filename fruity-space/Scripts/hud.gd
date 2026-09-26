@@ -10,6 +10,7 @@ func _ready() -> void:
 	for i in range(0, Globals.max_possible_health):
 		hearts.append(heart.instantiate())
 		hearts[i].position = Vector2(i * 20 + 20, 30)
+		hearts[i].show();
 		self.add_child(hearts[i])
 		
 func display_health(health: int):
