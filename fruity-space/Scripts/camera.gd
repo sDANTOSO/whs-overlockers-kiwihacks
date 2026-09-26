@@ -6,7 +6,7 @@ extends Node2D # Or Camera2D
 func _ready() -> void:
 	set_as_top_level(true)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not target:
 		return
 		

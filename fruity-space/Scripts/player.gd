@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-
 @export var GROUNDSPEED:float = 100
-@export var AIRSPEED:float = 5
-@export var MAXAIRSPEED: float = 15;
+@export var AIRSPEED:float = 15
+@export var MAXAIRSPEED: float = 600;
 @export var FRICTION: float = 0.8;
 @export var G: float = 15;
 @export var jump_velocity: int = 700
@@ -12,7 +11,7 @@ extends CharacterBody2D
 @onready var shapecast = $ShapeCast2D
 @export var hud: Control;
 @export var planet: Node2D;
-@export var max_health: int = 10;
+@export var max_health: int = 3;
 var health: int = max_health
 @export var damage_cooldown: int = 10
 @export var checkpoint_position: Vector2
@@ -24,15 +23,17 @@ var health: int = max_health
 
 
 var frames_since_last_damaged = 100;
+var lastCheckpoint: Vector2;
 
 var grounded: bool = false;
 
 func _ready() -> void:
 	goto_checkpoint()
 	hud.display_health(health)
+	lastCheckpoint = position;
 
 func goto_checkpoint():
-	pass
+	global_position = lastCheckpoint;
 
 func _physics_process(delta: float) -> void:
 	look_at(planet.position)
@@ -63,7 +64,9 @@ func _physics_process(delta: float) -> void:
 	
 	if !grounded:
 		velocity += diffToPlanet * G;
-		if velocity.length()<MAXAIRSPEED:
+		print(velocity.length());
+		var newMag = (velocity+horizontalVelocity).length();
+		if newMag < MAXAIRSPEED || newMag<velocity.length():
 			velocity+=horizontalVelocity*AIRSPEED;
 	else:
 		velocity+=horizontalVelocity*GROUNDSPEED;
@@ -84,10 +87,6 @@ func handle_damage():
 	if health <= 0:
 		goto_checkpoint()
 		health = max_health
-		
-func handle_checkpoint(pos: Vector2):
-	checkpoint_position = Vector2 (
-	 	atan2(pos.y, pos.x),
-		Vector2(pos.x, pos.y).length()
-	)
-	
+
+func set_checkpoint(pos: Vector2):
+	lastCheckpoint = pos;

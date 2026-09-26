@@ -33,9 +33,6 @@ checkpoint_position = Vector2(0, 1200)
 idleSprite = null
 jumpSprite = null
 
-[node name="Camera2D" parent="Player" index="3" unique_id=678578449]
-ignore_rotation = false
-
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=989876643]
 gravity_scale = 0.0
 
