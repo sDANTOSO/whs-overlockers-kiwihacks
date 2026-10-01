@@ -1,6 +1,6 @@
 # Space Fruit
 
-A simple 2D platfromer built in Godot for Kiwi Hack Nova - Wellington.
+A simple 2D platfromer built in Godot for Kiwi Hack Nova and the cozy fall jam.
 
 Instructions:
 - You need to get your spaceship to get home
